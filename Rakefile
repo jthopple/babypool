@@ -15,7 +15,7 @@ desc "Run code-coverage analysis using rcov"
 task :rcov do
   rm_rf "coverage"
   files = Dir[test_files_pattern]
-  system "rcov -t --sort coverage -x shoulda,rcov -Ilib #{files.join(' ')}"
+  system "rcov -T --sort coverage -x shoulda,rcov -Ilib #{files.join(' ')}"
 end
 
 desc 'Default: run tests.'
