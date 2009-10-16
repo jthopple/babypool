@@ -12,27 +12,18 @@ h2. A quick example:
 --------------------
 
 * Initialize the pool with a thread count and an execution limit.  Each thread's worker will timeout it's current job when it reaches the pool's execution limit.
-  
-  <pre>
-    <code>
-	    pool = BabyPool.new(:thread_count => 2, :execution_limit => 20)
-	  </code>
-	</pre>
+<pre><code>
+  pool = BabyPool.new(:thread_count => 2, :execution_limit => 20)
+</code></pre>
 	
 * Give the pool 20 jobs to do.
-  <pre>
-    <code>
-    	(0..20).each do |job|
-    	  pool.work(job) do
-    	    puts "Thread #{i} handling job #{job}."
-    	  end
-    	end
-  	</code>
-  </pre>
+<pre><code>
+	(0..20).each do |job|
+	  pool.work(job) do
+	    puts "Thread #{i} handling job #{job}."
+	  end
+	end
+</code></pre>
 
 * When you are done, shut down the pool by calling the drain method
-  <pre>
-    <code>
-	    pool.drain
-	  </code>
-	</pre
+<pre><code>pool.drain</code></pre>
