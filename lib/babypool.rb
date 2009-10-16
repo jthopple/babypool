@@ -1,4 +1,5 @@
 require "thread"
+require "timeout"
 
 # BabyPool implements a simple thread pool.
 # 
@@ -60,7 +61,7 @@ class BabyPool
         
         # Do the work by calling the block.
         begin
-          timeout(pool.execution_limit){ block.call(*args) }
+          Timeout::timeout(pool.execution_limit){ block.call(*args) }
         rescue Timeout::Error => e
           puts "#{self.to_s} - Worker timed out."
         end

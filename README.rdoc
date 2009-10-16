@@ -10,13 +10,13 @@ A quick example:
 
 * Initialize the pool with a thread count and an execution limit.  Each thread's worker will timeout it's current job when it reaches the pool's execution limit.
 
-	pool = BabyPool.new(:thread_count => 2, :execution_limit => 20)
+	pool = BabyPool.new(:thread_count => 10, :execution_limit => 20)
 	
 * Give the pool 20 jobs to do.
 
 	(0..20).each do |job|
 	  pool.work(job) do
-	    puts "Thread #{i} handling job #{job}."
+	    puts "Running job #{job}."
 	  end
 	end
 
