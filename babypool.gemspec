@@ -7,7 +7,7 @@ spec = Gem::Specification.new do |s|
   s.require_path = 'lib'
   s.autorequire = 'babypool'
   s.has_rdoc = true
-  s.extra_rdoc_files = ["README"]
+  s.extra_rdoc_files = ["README.rdoc"]
   s.rdoc_options << '--title' << 'BabyPool - a ruby thread pool.'
   s.author = "Jeremy T Hopple, Benjamin P Blackburne"
   s.email = "jeremy@jthopple.com"

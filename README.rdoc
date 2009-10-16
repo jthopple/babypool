@@ -1,4 +1,4 @@
-= Baby Pool -- Simple thread pool for Ruby. Released under the "MIT" license
+= Baby Pool -- Simple thread pool for Ruby.
 
 Baby Pool is a simple, but solid implementation of a thread pool using Ruby green threads.
 Pools are initialized with a thread count and an execution limit.  Baby Pool creates an array or workers
