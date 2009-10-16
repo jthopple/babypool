@@ -1,5 +1,5 @@
 h1. Baby Pool
--------------
+
 Simple thread pool for Ruby. Released under the "MIT" license
 
 Baby Pool is a simple, but solid implementation of a thread pool using Ruby green threads.
@@ -9,7 +9,6 @@ each in their own thread that listen for incoming jobs.
 The pool will continue to accept work until it is drained by calling the drain method.
 
 h2. A quick example:
---------------------
 
 * Initialize the pool with a thread count and an execution limit.  Each thread's worker will timeout it's current job when it reaches the pool's execution limit.
 <pre><code>
