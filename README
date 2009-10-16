@@ -1,12 +1,26 @@
-Simple thread pool for Ruby. Not well tested, but seems to work. Released under the "MIT" license
+= Baby Pool -- Simple thread pool for Ruby. Released under the "MIT" license
 
+Baby Pool is a simple, but solid implementation of a thread pool using Ruby green threads.
+Pools are initialized with a thread count and an execution limit.  Baby Pool creates an array or workers
+each in their own thread that listen for incoming jobs.
 
-example script, using 10 threads to print out numbers from 1..100 alongside the thread's name
+The pool will continue to accept work until it is drained by calling the drain method.
 
+A quick example:
 
-require "rubygems"
-require "executor"
+* Initialize the pool with a thread count and an execution limit.  Each thread's worker will timeout it's current job when
+  it reaches the pool's execution limit.
 
-x = ExecutorService.new(10)
-(1..100).each{|i| x.submit(i){|j| puts Thread.current.to_s  + " " + j.to_s}}
-x.join
+	pool = BabyPool.new(:thread_count => 2, :execution_limit => 20)
+	
+* Give the pool 20 jobs to do.
+
+	(0..20).each do |job|
+	  pool.work(job) do
+	    puts "Thread #{i} handling job #{job}."
+	  end
+	end
+
+* When you are done, shut down the pool by calling the drain method
+
+	pool.drain
