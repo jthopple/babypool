@@ -4,6 +4,21 @@ $LOAD_PATH.unshift('lib')
  
 require 'rake/testtask'
 
+begin
+  require 'jeweler'
+  Jeweler::Tasks.new do |gemspec|
+    gemspec.name = 'babypool'
+    gemspec.summary = "A ruby thread pool."
+    gemspec.description = "Simple thread pool implementation for Ruby green threads."
+    gemspec.authors = ["Jeremy T Hopple", "Benjamin P Blackburne"]
+    gemspec.email = "jeremy@jthopple.com"
+    gemspec.homepage = "http://github.com/jthopple/babypool"
+  end
+  Jeweler::GemcutterTasks.new
+rescue LoadError
+  puts "Jeweler not available. Install it with: sudo gem install technicalpickles-jeweler -s http://gems.github.com"
+end
+
 test_files_pattern = 'test/**/*_test.rb'
 Rake::TestTask.new(:test) do |t|
   t.libs << 'lib'
